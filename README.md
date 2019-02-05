@@ -13,6 +13,7 @@ You must set your keys in the wercker deploy variable page.
 * 'flynn_controller_domain' (required) Should be https://controller.$CLUSTER_DOMAIN
 * 'flynn_controller_key' (required) The controller authentication key.
 * 'flynn_app_name' (required) A name you want to refer to the cluster by locally.
+* 'flynn_tls_pin' (optional) TLS PIN
 
 ## Example
 
@@ -21,3 +22,4 @@ You must set your keys in the wercker deploy variable page.
         flynn_controller_domain: $FLYNN_CONTROLLER_DOMAIN
         flynn_controller_key: $FLYNN_CONTROLLER_KEY
         flynn_app_name: $FLYNN_APP_NAME
+        flynn_tls_pin: $FLYNN_TLS_PIN
