@@ -20,7 +20,7 @@ if [ ! -n "$FLYNN_APP_NAME" ]; then
     exit 1
 fi
 
-if [ -n "$FLYNN_TLS_PIN" ]; then
+if [ -z "$FLYNN_TLS_PIN" ]; then
     $FLYNN_TLS_PIN = "-p $FLYNN_TLS_PIN"
 else
     $FLYNN_TLS_PIN = ''
