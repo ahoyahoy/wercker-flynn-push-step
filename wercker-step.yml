@@ -1,5 +1,5 @@
 name: flynn-push
-version: 0.0.12
+version: 0.0.13
 description: This step allows you to deploy to Flynn via git push interface.
 keywords:
     - deploy

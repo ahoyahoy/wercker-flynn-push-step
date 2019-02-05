@@ -20,6 +20,12 @@ if [ ! -n "$FLYNN_APP_NAME" ]; then
     exit 1
 fi
 
+if [ -n "$FLYNN_TLS_PIN" ]; then
+    $FLYNN_TLS_PIN = "-p $FLYNN_TLS_PIN"
+else
+    $FLYNN_TLS_PIN = ''
+fi
+
 
 rm -rf .git
 git init
@@ -31,7 +37,7 @@ git commit -am "[ci skip] deploy from $WERCKER_STARTED_BY"
 git show-ref
 
 L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | zcat >$L && chmod +x $L
-flynn cluster add $FLYNN_CLUSTER_NAME $FLYNN_CONTROLLER_DOMAIN $FLYNN_CONTROLLER_KEY
+flynn cluster add $FLYNN_TLS_PIN $FLYNN_CLUSTER_NAME $FLYNN_CONTROLLER_DOMAIN $FLYNN_CONTROLLER_KEY
 flynn -a $FLYNN_APP_NAME remote add
 
 git push -f flynn master
