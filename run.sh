@@ -35,7 +35,7 @@ L=/usr/local/bin/flynn && curl -sSL -A "`uname -sp`" https://dl.flynn.io/cli | z
 echo flynn cluster add -p $FLYNN_TLS_PIN $FLYNN_CLUSTER_NAME $FLYNN_CONTROLLER_DOMAIN $FLYNN_CONTROLLER_KEY
 echo flynn cluster add $FLYNN_CLUSTER_NAME $FLYNN_CONTROLLER_DOMAIN $FLYNN_CONTROLLER_KEY
 
-if [ -z "$FLYNN_TLS_PIN" ]; then
+if [ -n "$FLYNN_TLS_PIN" ]; then
     echo "a"
     echo $FLYNN_TLS_PIN
     flynn cluster add -p $FLYNN_TLS_PIN $FLYNN_CLUSTER_NAME $FLYNN_CONTROLLER_DOMAIN $FLYNN_CONTROLLER_KEY
